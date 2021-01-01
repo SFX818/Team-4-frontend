@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { getCurrentUser, logout } from '../../services/auth.service'
+import '../../css/Navbar.css'
 
 const Layout = (props) => {
     const [showAdminBoard, setShowAdminBoard] = useState(false)
@@ -25,7 +26,7 @@ const Layout = (props) => {
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <Link to="/" className="navbar-brand">
-                    Cool Site
+                    PetFlix
         </Link>
                 <div className="navbar-nav mr-auto">
                     <li className="nav-item">
