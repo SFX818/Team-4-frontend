@@ -1,14 +1,14 @@
-import React from 'react'
-import { getCurrentUser } from '../services/auth.service'
+import React from "react"
+import logo from "../css/Petflix_Logo-01.png"
 
-// landing page for more info about Petflix// renders all the posts on a timeline
+// landing page for more info about Petflix
 const Landing = () => {
-    const currentUser = getCurrentUser()
     return (
         <div className="container">
             <header className="jumbotron">
                 <h3>
-                    <strong>Welcome back, {currentUser.username}</strong>
+                    <img src={logo} alt="Logo" className="logo" />
+                    <strong>Welcome to Petflix!</strong>
                 </h3>
             </header>
         </div>
