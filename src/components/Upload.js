@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import Alert from '../components/Alert';
-
-import { Button } from "bootstrap";
+import { Button } from "reactstrap";
 
 export default function Upload() {
     // actual file input state for handleFileInputChange
     const [fileInputState, setFileInputState] = useState('');
     // const [previewSource, setPreviewSource] = useState('');
-    const [selectedFile, setSelectedFile] = useState();
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errMsg, setErrMsg] = useState('');
+    // const [selectedFile, setSelectedFile] = useState();
 
     // to grab the file out of the input state
     const handleFileInputChange = (e) => {
@@ -28,8 +24,6 @@ export default function Upload() {
     return (
         <div>
             <h1 className="title">Make a post</h1>
-            <Alert msg={errMsg} type="danger" />
-            <Alert msg={successMsg} type="success" />
             <form className="form-group">
                 <input
                     id="fileInput"
