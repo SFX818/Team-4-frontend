@@ -100,7 +100,7 @@ const SignUp = (props) => {
                     setSuccessful(true)
                     setTimeout(() => {
                         props.history.push('/login')
-                    },3000)
+                    },2000)
                 }, 
                     (error) => {
                         setMessage(resMessage(error))
