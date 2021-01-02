@@ -1,10 +1,13 @@
 import React from 'react'
 import { getCurrentUser } from '../services/auth.service'
 
-const Post = () = {
+const Post = () => {
     const currentUser = getCurrentUser()
     
     return(
+        <div>
+            
+        </div>
 
     )
 }
