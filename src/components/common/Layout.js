@@ -29,11 +29,13 @@ const Layout = (props) => {
                     PetFlix
         </Link>
                 <div className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <Link to={"/home"} className="nav-link">
-                            Home
+                    {currentUser && (
+                        <li className="nav-item">
+                            <Link to={"/home"} className="nav-link">
+                                Home
             </Link>
-                    </li>
+                        </li>
+                    )}
                     {showAdminBoard && (
                         <li className="nav-item">
                             <Link to={"/admin"} className="nav-link">

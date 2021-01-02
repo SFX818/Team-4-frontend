@@ -23,6 +23,7 @@ const Profile = () => {
             {/* if current user has roles then map through those roles */}
             {currentUser.roles && 
                 currentUser.roles.map((roles, index) => <li key={index}>{roles}</li>)}
+            
         </div>
     )
 }
