@@ -2,30 +2,32 @@ import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { isEmail } from 'validator';
+import { isEmail } from "validator"
 
-//Components
-import FormGroup from './common/FormGroup'
-import ButtonSpinner from './common/ButtonSpinner'
+// component
+import FormGroup from "./common/FormGroup";
+import ButtonSpinner from "./common/ButtonSpinner"
 
-//Helper
+// helper
+// refactor to log in after signing up
+// refactor to handle loading after signing up
 import { register } from '../services/auth.service'
 import { resMessage } from '../utilities/functions.utilities'
 
 // Function given to react-validator
 const required = (value) => {
-    if (!value) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                This field is required!
-            </div>
-        );
-    }
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
+  }
 };
 
-//validates email
-const vUsername = (value) => {
-    if (value.length < 3 || value.length >= 20) {
+// function that validates usernames
+const vusername = (value) => {
+    if(value.length < 3 || value.length >= 20) {
         return (
             <div className="alert alert-danger" role="alert">
                 The username must be between 3 and 20 characters.
@@ -34,165 +36,143 @@ const vUsername = (value) => {
     }
 }
 
-//validates Password
-const vPassword = (value) => {
-    if (value.length < 6 || value.length >= 20) {
+// function that validates passwords 
+const vpassword = (value) => {
+    if(value.length < 6 || value.length >= 40) {
         return (
             <div className="alert alert-danger" role="alert">
-                Your password must be between 6 and 40
+                The password must be between 6 and 40 characters.
             </div>
         )
     }
 }
 
-//validates Email ======> isEmail is a library that is used to validate emails
-const vEmail = (value) => {
-    if (!isEmail(value)) {
+// function that validates email (using validator to see if it's in the right format) 
+const validEmail = (value) => {
+    if(!isEmail(value)) {
         return (
             <div className="alert alert-danger" role="alert">
-                Your email is not valid
+                The email must be valid.
             </div>
         )
     }
 }
+
 
 const SignUp = (props) => {
-    const form = useRef();
-    const checkBtn = useRef();
+  const form = useRef();
+  const checkBtn = useRef();
 
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [successful, setSuccessful] = useState(false);
-    const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState("");
 
-    // Stores the username in our username state
-    const onChangeUsername = (e) => {
-        const username = e.target.value;
-        setUsername(username);
-    };
-    //Stores the email in the email state
-    const onChangeEmail = (e) => {
-        const email = e.target.value;
-        setEmail(email);
-    };
-    // Stores the password in our password state
-    const onChangePassword = (e) => {
-        const password = e.target.value;
-        setPassword(password);
-    };
+  // Stores the username in our username state
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        //Prevent message clear them out
-        setMessage("")
-        setSuccessful(false)
+  // Stores the email in our email state
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
 
-        // Validates all the fields (username, email, and password)
-        form.current.validateAll();
+  // Stores the password in our password state
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
 
-        // Validator stores errors and we can check if error exist
-        console.log(checkBtn.current)
-        if (checkBtn.current.context._errors.length === 0) {
-            register(username, email, password).then(
-                (response) => {
-                    setMessage(response.data.message)
-                    setSuccessful(true)
-                    setTimeout(() => {
-                        props.history.push('/login')
-                    },3000)
-                }, 
-                    (error) => {
-                        setMessage(resMessage(error))
-                        setSuccessful(false)
-                    }
-            )
-        }
-            
-            //delete because we are using register()
-        //     login(username, password).then(
-        //         () => {
-        //             props.history.push("/profile");
-        //             window.location.reload()
-        //         },
-        //         (error) => {
-        //             // Checking all the data received from our backend
-        //             // const resMessage =
-        //             //     (error.response &&
-        //             //         error.response.data &&
-        //             //         error.response.data.message) ||
-        //             //     error.message ||
-        //             //     error.toString();
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    //Prevent message clear them out
+    setMessage("")
+    setSuccessful(false)
 
-        //             // Setting loading to false and return the error
-        //             setSuccessful(false)
-        //             //Checking all the data received from our backend <=== different way
-        //             setMessage(resMessage(error))
-        //         }
-        //     );
-        // } else {
-        //     setSuccessful(false)
-        // }
+    // Validates all the fields
+    form.current.validateAll();
 
-    };
+    // Validator stores errors and we can check if error exist
+    if(checkBtn.current.context._errors.length === 0){
+        register(username, email, password).then(
+            (response) => {
+                setMessage(response.data.message)
+                setSuccessful(true)
+                setTimeout(() => {
+                    props.history.push("/login")
+                }, 1000)
+            },
+            (error) => {
+                setMessage(resMessage(error))
+                setSuccessful(false)
+            }
+        )
+    }
+  };
+  
+  return (
+    <div className="col-md-12">
+      <div className="card card-container">
+        <img
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          alt="profile-img"
+          className="profile-img-card"
+        />
 
-    return (
-        <div className="col-md-12">
-            <div className="card card-container">
-                <img
-                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                    alt="profile-img"
-                    className="profile-img-card"
-                />
+        <Form onSubmit={handleSignUp} ref={form}>
 
-                <Form onSubmit={handleLogin} ref={form}>
-                    <FormGroup text="username">
-                        <Input
-                            type="text"
-                            className="form-control"
-                            name="username"
-                            value={username}
-                            onChange={onChangeUsername}
-                            validations={[required, vUsername]} //tells if the username is right with more than 3 and less than 20
-                        />
-                    </FormGroup>
-                    <FormGroup text="email">
-                        <Input
-                            type="text"
-                            className="form-control"
-                            name="email"
-                            value={email}
-                            onChange={onChangeEmail}
-                            validations={[required, vEmail]} //validates email
-                        />
-                    </FormGroup>
+          <FormGroup text="username">
+            <Input
+              type="text"
+              className="form-control"
+              name="username"
+              value={username}
+              onChange={onChangeUsername}
+              validations={[required, vusername]}
+            />
+          </FormGroup>
 
-                    <FormGroup text="password">
-                        <Input
-                            type="password"
-                            className="form-control"
-                            name="password"
-                            value={password}
-                            onChange={onChangePassword}
-                            validations={[required, vPassword]} // password has to be longer than 6 and less than 40 characters
-                        />
-                    </FormGroup>
+          <FormGroup text="email">
+            <Input
+              type="text"
+              className="form-control"
+              name="username"
+              value={email}
+              onChange={onChangeEmail}
+              validations={[required, validEmail]}
+            />
+          </FormGroup>
+        
+          <FormGroup text="password">
+            <Input
+              type="password"
+              className="form-control"
+              name="password"
+              value={password}
+              onChange={onChangePassword}
+              validations={[required, vpassword]}
+            />
+          </FormGroup>
 
-                    <ButtonSpinner text="Sign Up" />
+          <ButtonSpinner text="Sign Up"/>
 
-                    {message && (
-                        <div className="form-group">
-                            <div className={successful ? "alert alert-success" : "alert alert-danger"} role="alert">
-                                {message}
-                            </div>
-                        </div>
-                    )}
-
-                    <CheckButton style={{ display: "none" }} ref={checkBtn} />
-                </Form>
+          {message && (
+            <div className="form-group">
+              <div className={successful ? "alert alert-success" : "alert alert-danger"} role="alert">
+                {message}
+              </div>
             </div>
-        </div>
-    );
+          )}
+
+          <CheckButton style={{ display: "none" }} ref={checkBtn} />
+        </Form>
+      </div>
+    </div>
+  );
 };
 
 export default SignUp;
