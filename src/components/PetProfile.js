@@ -5,7 +5,8 @@ const PetProfile = () => {
     return (
       <div class="petpage">
           <div class="aboutpet">
-            {/* Pet's Image code will go here */}
+            {/* Pet's Image code will go here - Pet image upload form - LAM*/}
+            <button>Update</button>
               <h3>
                   <strong>Petname's Profile</strong>
               </h3>
@@ -27,12 +28,22 @@ const PetProfile = () => {
               </div>
           </div>
           <div class="journalentry">
-            {/* Pet's Image and button to profile for each pet's profile */}
+            {/* Journal entries (stretch goal) -TREZ */}
             <button>Update</button>
-            <button>Update</button>
+            <button>Delete</button>
           </div>
           <div class="newentry">
-            <button>Add New Pet</button>
+              {/* Form to add new journal entry -LAM */}
+            <button>Add New Entry</button>
+          </div>
+          <div class="milestones">
+            {/* Milestone timeline (stretch goal) -LAM */}
+            <button>Update</button>
+            <button>Delete</button>
+          </div>
+          <div class="newmilestone">
+              {/* Form to add milestone =LAM  */}
+            <button>Add New Milestone</button>
           </div>
       </div>
     )
