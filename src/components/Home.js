@@ -14,7 +14,8 @@ const Home = () => {
   return (
     <div class="userprofile">
         <div class="aboutuser">
-          {/* User's Image code will go here */}
+          {/* User's Image code will go here - User image upload form -LAM*/}
+          <button>Update</button>
             <h3>
                 <strong>Current User's Profile</strong>
             </h3>
@@ -27,6 +28,7 @@ const Home = () => {
           <button>Pet's Profile</button>
         </div>
         <div class="newpet">
+          {/* New Pet form -LAM */}
           <button>Add New Pet</button>
         </div>
     </div>

@@ -29,9 +29,10 @@ const Profile = () => {
 
 //Code that will go in above function
 
-{/* <div class="userprofile">
-<div class="aboutuser">
-  {/* User's Image code will go here */}
+// {/* <div class="userprofile">
+// <div class="aboutuser">
+//   {/* User's Image code will go here - User image upload form -LAM*/}
+//   <button>Update</button>
 //     <h3>
 //         <strong>Current User's Profile</strong>
 //     </h3>
@@ -44,6 +45,7 @@ const Profile = () => {
 //   <button>Pet's Profile</button>
 // </div>
 // <div class="newpet">
+//   {/* New Pet form -LAM */}
 //   <button>Add New Pet</button>
 // </div>
 // </div> */}
