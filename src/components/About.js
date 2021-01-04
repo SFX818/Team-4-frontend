@@ -14,7 +14,9 @@ const About = () => {
           <div class="developer1">
             {/* Lam's Image */}
             <p>
-               About Lam
+               I am a data-driven, human-centric design expert with extensive history in communications 
+               strategy and programming, eager to apply my passion for public service with my project 
+               management and problem-solving skills to any challenge.
             </p>
             <a href="https://github.com/xlnl">
                 Lam's Github
