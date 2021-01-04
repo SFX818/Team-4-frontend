@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       {currentUser && (
-        <div className="card">
+        <div className="card" style={{ width:"18rem"}}>
           
             <div className="card-body">
               <h5 className="card-title">Card title</h5>
