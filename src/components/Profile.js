@@ -27,4 +27,25 @@ const Profile = () => {
     )
 }
 
+//Code that will go in above function
+
+{/* <div class="userprofile">
+<div class="aboutuser">
+  {/* User's Image code will go here */}
+//     <h3>
+//         <strong>Current User's Profile</strong>
+//     </h3>
+//     <p>
+//       Text about user will appear here.
+//     </p>
+// </div>
+// <div class="userpets">
+//   {/* Pet's Image and button to profile for each pet's profile */}
+//   <button>Pet's Profile</button>
+// </div>
+// <div class="newpet">
+//   <button>Add New Pet</button>
+// </div>
+// </div> */}
+
 export default Profile
