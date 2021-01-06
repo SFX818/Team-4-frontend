@@ -1,23 +1,20 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import Post from './Post/Post';
-
-// const Posts = ({ setCurrentId }) => {
-//   const posts = useSelector((state) => state.posts);
-const Posts = () => {
-  return (
-    <>
-      {/* {posts.map((post) => (
-          <div key = {post._id}>
-            <Post post={post} setCurrentId={setCurrentId} />
-          </div>
-        ))} */}
-      <h1>Posts</h1>
-      <Post />
-    </>
-  )
+const Post = ({ setCurrentId }) => {
+    const posts = useSelector((state) => state.posts);
+    console.log(posts)
+    return (
+        <>
+            {posts.map((post) => (
+                <div key={post._id}>
+                    <Post post={post} setCurrentId={setCurrentId} />
+                </div>
+            ))}
+            <h2>Post</h2>
+        </>
+    )
 };
 
 
-export default Posts;
+export default Post; 
