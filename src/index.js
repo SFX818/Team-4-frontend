@@ -9,6 +9,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 // Components imports
+import { reducers } from './reducers';
 import App from "./App";
 
 //find the minimized version of bootstrap
