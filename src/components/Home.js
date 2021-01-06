@@ -1,25 +1,28 @@
-import React from 'react'
-import { getCurrentUser } from '../services/auth.service'
+import React, { useEffect, useState } from 'react';
+// hook from redux to get actions
+import { useDispatch } from 'react-redux';
 
+import { findAll } from '../actions/posts'
+import Posts from './Posts/Posts'
 
-
+// renders all the posts on a timeline
 const Home = () => {
-  const currentUser = getCurrentUser()
+  const [currentId, setCurrentId] = useState(0);
+  const dispatch = useDispatch();
+
+  // successful dispatch
+  useEffect(() => {
+    dispatch(findAll());
+  }, [currentId, dispatch]);
 
   return (
     <div>
-      {currentUser && (
-        <div className="card" style={{ width: "18rem" }}>
-          <img src="images/Tony" class="card-img-top" alt="..."/>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-</div>
-
-      )}
+      <h1 className="title">Welcome to Petflix</h1>
+      <div className="gallery">
+        <Posts setCurrentId={setCurrentId} />
+      </div>
     </div>
-  )
-}
-  
+  );
+};
 
 export default Home;
