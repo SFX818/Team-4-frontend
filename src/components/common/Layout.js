@@ -29,13 +29,11 @@ const Layout = (props) => {
                     <strong>Petflix</strong>
                 </Link>
                 <div className="navbar-nav mr-auto">
-                    {currentUser && (
-                        <li className="nav-item">
-                            <Link to={"/home"} className="nav-link">
-                                Home
-            </Link>
-                        </li>
-                    )}
+                    <li className="nav-item">
+                        <Link to={"/about"} className="nav-link">
+                            About
+                        </Link>
+                    </li>
                     {showAdminBoard && (
                         <li className="nav-item">
                             <Link to={"/admin"} className="nav-link">
@@ -61,7 +59,7 @@ const Layout = (props) => {
                         <li className="nav-item">
                             <a href="/login" className="nav-link" onClick={logOut}>
                                 Log Out
-                </a>
+                            </a>
                         </li>
                     </div>
                 ) : (
