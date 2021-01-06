@@ -16,12 +16,12 @@ const Home = () => {
   }, [currentId, dispatch]);
 
   return (
-      <div>
-          <h1 className="title">Welcome to Petflix</h1>
-          <div className="gallery">
-            <Posts setCurrentId={setCurrentId} />
-          </div>
+    <div>
+      <h1 className="title">Welcome to Petflix</h1>
+      <div className="gallery">
+        <Posts setCurrentId={setCurrentId} />
       </div>
+    </div>
   );
 };
 

@@ -29,11 +29,13 @@ const Layout = (props) => {
                     <strong>Petflix</strong>
                 </Link>
                 <div className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <Link to="/about" className="navbar-brand">
-                            About
-                        </Link>
-                    </li>
+                    {currentUser && (
+                        <li className="nav-item">
+                            <Link to={"/home"} className="nav-link">
+                                Home
+            </Link>
+                        </li>
+                    )}
                     {showAdminBoard && (
                         <li className="nav-item">
                             <Link to={"/admin"} className="nav-link">
