@@ -8,11 +8,11 @@ const Profile = () => {
         <div className="container">
             <header className="jumbotron">
                 <h3>
-                    <strong>{currentUser.username}</strong>
+                    <strong>Welcome, {currentUser.username}</strong>
                 </h3>
             </header>
             <p>
-                <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)}...{" "}
+                <strong>Name:</strong> {currentUser.firstName} {" "} {currentUser.lastName} 
             </p>
             <p>
                 <strong>Id:</strong>{currentUser.id}
@@ -20,6 +20,11 @@ const Profile = () => {
             <p>
                 <strong>Email:</strong>{currentUser.email}
             </p>
+            <p>
+                <strong>City:</strong>{currentUser.city}
+            </p>
+            <img src={currentUser.profilePic} alt="current user's profile pic"/>
+
             {/* if current user has roles then map through those roles */}
             {currentUser.roles && 
                 currentUser.roles.map((roles, index) => <li key={index}>{roles}</li>)}

@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
+// hook from redux to get actions
+import { useDispatch } from 'react-redux';
 
+import { findAll } from '../actions/posts'
 import Posts from './Posts/Posts'
 
 const Home = () => {
   const [currentId, setCurrentId] = useState(0);
+  const dispatch = useDispatch();
+  
+  // successful dispatch
+  useEffect(() => {
+    dispatch(findAll());
+  }, [currentId, dispatch]);
 
   return (
       <div>
