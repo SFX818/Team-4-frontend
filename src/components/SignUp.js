@@ -6,11 +6,13 @@ import { isEmail } from "validator"
 // component
 import FormGroup from "./common/FormGroup";
 import ButtonSpinner from "./common/ButtonSpinner"
+
 // helper
 // refactor to log in after signing up
 // refactor to handle loading after signing up
 import { register } from '../services/auth.service'
 import { resMessage } from '../utilities/functions.utilities'
+
 // Function given to react-validator
 const required = (value) => {
   if (!value) {
