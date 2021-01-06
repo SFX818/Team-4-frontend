@@ -3,6 +3,9 @@ import { Button, Input, Form } from "reactstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 
+// create and update actions imported
+import { createPost, updatePost } from '../../actions/posts';
+
 const UploadPost = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({ 
         username: '', 
@@ -45,7 +48,9 @@ const UploadPost = ({ currentId, setCurrentId }) => {
                 </div>
                 <Button type="submit">Submit</Button>
                 <Button onClick={clear}>Clear</Button>
-        </form>
+        </Form>
         </div>
     );
 }
+
+export default UploadPost;
