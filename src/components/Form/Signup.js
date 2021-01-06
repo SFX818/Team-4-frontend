@@ -13,7 +13,7 @@ import ButtonSpinner from "../common/ButtonSpinner"
 // helper
 // refactor to log in after signing up
 // refactor to handle loading after signing up
-import { signup } from '../../services/auth.service'
+import { signup, login } from '../../services/auth.service'
 import { resMessage } from '../../utilities/functions.utilities'
 
 // Function given to react-validator
@@ -65,51 +65,53 @@ const SignUp = (props) => {
   const form = useRef();
   const checkBtn = useRef();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [profilePic, setProfilePic] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  const [data, setData] = useState({
+    username: "", 
+    password: "", 
+    email: "",
+    city: "",
+    profilePic: ""
+  })
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
 
-  // Stores the username in our username state
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
-  };
+  // // Stores the username in our username state
+  // const onChangeUsername = (e) => {
+  //   const username = e.target.value;
+  //   setUsername(username);
+  // };
 
-  // Stores the email in our email state
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
+  // // Stores the email in our email state
+  // const onChangeEmail = (e) => {
+  //   const email = e.target.value;
+  //   setEmail(email);
+  // };
 
-  // Stores the password in our password state
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
+  // // Stores the password in our password state
+  // const onChangePassword = (e) => {
+  //   const password = e.target.value;
+  //   setPassword(password);
+  // };
 
-  // Stores the first name in our first name state
-  const onChangeFirstName = (e) => {
-    const firstName = e.target.value;
-    setFirstName(firstName);
-  };
+  // // Stores the first name in our first name state
+  // const onChangeFirstName = (e) => {
+  //   const firstName = e.target.value;
+  //   setFirstName(firstName);
+  // };
 
-  // Stores the last name in our last name state
-  const onChangeLastName = (e) => {
-    const lastName = e.target.value;
-    setLastName(lastName);
-  };
+  // // Stores the last name in our last name state
+  // const onChangeLastName = (e) => {
+  //   const lastName = e.target.value;
+  //   setLastName(lastName);
+  // };
 
-  // Stores the city in our city state
-  const onChangeCity = (e) => {
-    const city = e.target.value;
-    setCity(city);
-  };
+  // // Stores the city in our city state
+  // const onChangeCity = (e) => {
+  //   const city = e.target.value;
+  //   setCity(city);
+  // };
 
 
   const handleSignUp = (e) => {
@@ -123,20 +125,30 @@ const SignUp = (props) => {
 
     // Validator stores errors and we can check if error exist
     if(checkBtn.current.context._errors.length === 0){
-      signup(username, email, password).then(            (response) => {
-                setMessage(response.data.message)
-                setSuccessful(true)
-                setTimeout(() => {
-                    props.history.push("/login")
-                }, 1000)
+      // register the user
+      signup(data).then(            
+        (response) => {
+              setMessage(response.data.message)
+              setSuccessful(true)
+              // log them in after sign up
+              login(data.username, data.password).then(()=> {
+                props.history.push("/home")
+                window.location.reload()
+              })
             },
             (error) => {
-                setMessage(resMessage(error))
-                setSuccessful(false)
+              setMessage(resMessage(error))
+              setSuccessful(false)
             }
         )
+    } else {
+      setSuccessful(false)
     }
   };
+
+  const onChangeHandler = (e) => {
+    setData({...data,[e.target.name]:e.target.value})
+  }
   
   return (
     <div className="col-md-12">
@@ -149,7 +161,7 @@ const SignUp = (props) => {
 
         <Form onSubmit={handleSignUp} ref={form}>
           
-          <FormGroup text="First Name">
+          {/* <FormGroup text="First Name">
             <Input
               type="text"
               className="form-control"
@@ -169,15 +181,15 @@ const SignUp = (props) => {
               onChange={onChangeLastName}
               validations={[required]}
             />
-          </FormGroup>
+          </FormGroup> */}
 
           <FormGroup text="username">
             <Input
               type="text"
               className="form-control"
               name="username"
-              value={username}
-              onChange={onChangeUsername}
+              value={data.username}
+              onChange={onChangeHandler}
               validations={[required, vusername]}
             />
           </FormGroup>
@@ -186,8 +198,9 @@ const SignUp = (props) => {
             <Input
               type="text"
               className="form-control"
-              name="email"              value={email}
-              onChange={onChangeEmail}
+              name="email"              
+              value={data.email}
+              onChange={onChangeHandler}
               validations={[required, validEmail]}
             />
           </FormGroup>
@@ -197,8 +210,8 @@ const SignUp = (props) => {
               type="password"
               className="form-control"
               name="password"
-              value={password}
-              onChange={onChangePassword}
+              value={data.password}
+              onChange={onChangeHandler}
               validations={[required, vpassword]}
             />
           </FormGroup>
@@ -208,8 +221,8 @@ const SignUp = (props) => {
               type="text"
               className="form-control"
               name="city"
-              value={city}
-              onChange={onChangeCity}
+              value={data.city}
+              onChange={onChangeHandler}
             />
           </FormGroup>
 
@@ -217,7 +230,7 @@ const SignUp = (props) => {
             <FileBase 
               type="file" 
               multiple={false} 
-              onDone={({ base64 }) => setProfilePic({ ...profilePic, profilePic: base64 })} />
+              onDone={({ base64 }) => setData({ ...data, profilePic: base64 })} />
           </div>
 
 
