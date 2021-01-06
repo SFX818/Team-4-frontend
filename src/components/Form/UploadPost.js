@@ -1,49 +1,28 @@
 import React, { useState } from 'react';
 import { Button } from "reactstrap";
+import { useDispatch } from 'react-redux';
+import FileBase from 'react-file-base64';
 
-export default function Upload() {
-    // actual file input state for handleFileInputChange
-    const [fileInputState, setFileInputState] = useState('');
-    // const [previewSource, setPreviewSource] = useState('');
-    // const [selectedFile, setSelectedFile] = useState();
-
-    // to grab the file out of the input state
-    const handleFileInputChange = (e) => {
-        //just grabbing one file
-        const file = e.target.files[0]
-    };
-
-    // const previewFile = (file) => {
-
-    // };
-
-    // const handleSubmitFile = (e) => {
-
-    // };
+const UploadPost = ({ currentId, setCurrentId }) => {
+    const [postData, setPostData] = useState({ 
+        username: '', 
+        description: '', 
+        image: '' 
+    });
+    const dispatch = useDispatch();
 
     return (
         <div>
-            <h1 className="title">Make a post</h1>
-            <form className="form-group">
-                <input
-                    id="fileInput"
-                    type="file"
-                    name="image"
-                    onChange={handleFileInputChange}
-                    value={fileInputState}
-                    className="form-input"
-                />
-                <Button className="btn" type="submit">
-                    Submit
-                </Button>
-            </form>
-            {/* {previewSource && (
-                <img
-                    src={previewSource}
-                    alt="chosen"
-                    style={{ height: '300px' }}
-                />
-            )} */}
+            <form onSubmit={handleSubmit}>
+                <h2>{currentId ? `Editing Post:"${post._id}"` : 'Make a Post'}</h2>        
+                <input name="username" label="Username" value={postData.username} onChange={(e) => setPostData({ ...postData, username: e.target.value })} />
+                <input name="description" label="Description" value={postData.message} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
+                <div>
+                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
+                </div>
+                <Button type="submit">Submit</Button>
+                <Button onClick={clear}>Clear</Button>
+        </form>
         </div>
     );
 }
