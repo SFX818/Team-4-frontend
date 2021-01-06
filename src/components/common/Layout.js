@@ -59,7 +59,7 @@ const Layout = (props) => {
                         <li className="nav-item">
                             <a href="/login" className="nav-link" onClick={logOut}>
                                 Logout
-                </a>
+                            </a>
                         </li>
                     </div>
                 ) : (
