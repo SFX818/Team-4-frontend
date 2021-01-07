@@ -158,22 +158,7 @@ const SignUp = (props) => {
             />
           </FormGroup>
 
-          <FormGroup text="city">
-            <Input
-              type="text"
-              className="form-control"
-              name="city"
-              value={city}
-              onChange={onChangeCity}
-            />
-          </FormGroup>
 
-          <div>
-            <FileBase 
-              type="file" 
-              multiple={false} 
-              onDone={({ base64 }) => setProfilePic({ ...profilePic, profilePic: base64 })} />
-          </div>
 
           <ButtonSpinner text="Sign Up"/>
 
