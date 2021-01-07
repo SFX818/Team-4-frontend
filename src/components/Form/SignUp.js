@@ -87,10 +87,6 @@ const SignUp = (props) => {
     setPassword(password);
   };
 
-
-
-
-
   const handleSignUp = (e) => {
     e.preventDefault();
     //Prevent message clear them out
@@ -128,27 +124,6 @@ const SignUp = (props) => {
         />
 
         <Form onSubmit={handleSignUp} ref={form}>
-          <FormGroup text="First Name">
-            <Input
-              type="text"
-              className="form-control"
-              name="firstName"
-              value={firstName}
-              onChange={onChangeFirstName}
-              validations={[required]}
-            />
-          </FormGroup>
-
-          <FormGroup text="Last Name">
-            <Input
-              type="text"
-              className="form-control"
-              name="lastName"
-              value={lastName}
-              onChange={onChangeLastName}
-              validations={[required]}
-            />
-          </FormGroup>
 
           <FormGroup text="username">
             <Input
