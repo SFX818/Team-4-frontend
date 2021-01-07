@@ -61,12 +61,9 @@ const validEmail = (value) => {
 const SignUp = (props) => {
   const form = useRef();
   const checkBtn = useRef();
-
-  const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [profilePic, setProfilePic] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
 
