@@ -88,11 +88,6 @@ const SignUp = (props) => {
   };
 
 
-  // Stores the last name in our last name state
-  const onChangeLastName = (e) => {
-    const lastName = e.target.value;
-    setLastName(lastName);
-  };
 
   // Stores the city in our city state
   const onChangeCity = (e) => {
