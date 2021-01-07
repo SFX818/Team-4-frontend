@@ -89,11 +89,7 @@ const SignUp = (props) => {
 
 
 
-  // Stores the city in our city state
-  const onChangeCity = (e) => {
-    const city = e.target.value;
-    setCity(city);
-  };  
+
 
   const handleSignUp = (e) => {
     e.preventDefault();
