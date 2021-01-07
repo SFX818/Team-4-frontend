@@ -67,6 +67,8 @@ const SignUp = (props) => {
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
 
+
+
   // Stores the username in our username state
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -85,12 +87,6 @@ const SignUp = (props) => {
     setPassword(password);
   };
 
-
-  // Stores the first name in our first name state
-  const onChangeFirstName = (e) => {
-    const firstName = e.target.value;
-    setFirstName(firstName);
-  };
 
   // Stores the last name in our last name state
   const onChangeLastName = (e) => {
