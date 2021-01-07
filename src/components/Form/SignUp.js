@@ -4,12 +4,13 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator"
 
-
 // component
 import FormGroup from "../common/FormGroup";
 import ButtonSpinner from "../common/ButtonSpinner"
 
 // helper
+// refactor to log in after signing up
+// refactor to handle loading after signing up
 import { signup } from '../../services/auth.service'
 import { resMessage } from '../../utilities/functions.utilities'
 
@@ -57,13 +58,10 @@ const validEmail = (value) => {
     }
 }
 
-
 const SignUp = (props) => {
   const form = useRef();
   const checkBtn = useRef();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
