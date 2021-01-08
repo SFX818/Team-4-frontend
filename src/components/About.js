@@ -7,7 +7,7 @@ import Gabe from '../css/Gabe.jpg'
 const About = () => {
     return (
       <div className="about">
-        <img src={logo} alt="Logo" classNameName="aboutlogo"/>
+        <img src={logo} alt="Logo" className="aboutlogo"/>
           <div className="mainheader">
           
               <u>About the Developers of Petflix</u>
