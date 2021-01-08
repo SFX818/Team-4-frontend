@@ -25,7 +25,7 @@ const Profile = () => {
             {/* <p>
                 <strong>City:</strong>{currentUser.city}
             </p> */}
-            <img src={currentUser.profilePic} alt="current user's profile pic"/>
+            {/* <img src={currentUser.profilePic} alt="current user's profile pic"/> */}
 
             {/* if current user has roles then map through those roles */}
             {currentUser.roles && 

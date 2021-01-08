@@ -1,8 +1,8 @@
 import React from 'react'
-import logo from "../css/Petflix_Logo-01.png"
-import Lam from '../css/Lam.jpg'
-import Trez from '../css/Trez.jpg'
-import Gabe from '../css/Gabe.jpg'
+import logo from "../css/images/Petflix_Logo-01.png"
+import Lam from '../css/images/Lam.jpg'
+import Trez from '../css/images/Trez.jpg'
+import Gabe from '../css/images/Gabe.jpg'
 
 const About = () => {
     return (
