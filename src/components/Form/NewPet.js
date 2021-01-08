@@ -41,10 +41,21 @@ const UploadPost = ({ currentId, setCurrentId }) => {
         <div>
             <Form onSubmit={handleSubmit}>
                 <h2>{currentId ? `Editing Post:"${post._id}"` : 'Make a Post'}</h2>        
-                <Input name="username" label="Username" value={postData.username} onChange={(e) => setPostData({ ...postData, username: e.target.value })} />
-                <Input name="description" label="Description" value={postData.message} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
+                <Input 
+                    name="username" 
+                    label="Username" 
+                    value={postData.username} 
+                    onChange={(e) => setPostData({ ...postData, username: e.target.value })} />
+                <Input 
+                    name="description" 
+                    label="Description" 
+                    value={postData.message} 
+                    onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
                 <div>
-                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
+                    <FileBase 
+                        type="file" 
+                        multiple={false} 
+                        onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
                 </div>
                 <Button type="submit">Submit</Button>
                 <Button onClick={clear}>Clear</Button>
