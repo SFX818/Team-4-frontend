@@ -37,6 +37,59 @@ label {
   height: 50%
 }
 
+.developer {
+  background-color:#ee660b;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 15px;
+  /* text-align: center; */
+  width: calc(100% / 3);  
+  display: inline-block;
+  vertical-align: top;   
+  margin:3.5%;    
+}
+
+.DevImage {
+  padding: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+
+.mainheader {
+  text-align: center;
+  font-size: 5pc;
+}
+
+.aboutapp {
+  text-align: center;
+}
+
+.gitlink {
+  background-color: #d63a13;
+  border: none;
+  color: white;
+  padding: 10px;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+}
+
+.aboutdev {
+  padding: 10px;
+}
+
+.name {
+  text-align: center;
+}
+
 
 
 
