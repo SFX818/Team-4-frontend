@@ -41,11 +41,23 @@ const UploadPost = ({ postId, setPostId }) => {
         <div>
         <Paper>
             <form onSubmit={handleSubmit}>
-                <Typography variant="h6">{postId ? `Editing Post:"${post._id}"` : 'Make a Post'}</h2>        
-                <TextField name="username" label="Username" value={postData.username} onChange={(e) => setPostData({ ...postData, username: e.target.value })} />
-                <TextField name="description" label="Description" value={postData.message} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
+                <Typography 
+                    variant="h6">{postId ? `Editing Post:"${post._id}"` : 'Make a Post'}
+                </Typography>        
+                <TextField 
+                    name="username" 
+                    label="Username" 
+                    value={postData.username} 
+                    onChange={(e) => setPostData({ ...postData, username: e.target.value })} />
+                <TextField 
+                    name="description" 
+                    label="Description" 
+                    value={postData.message} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
                 <div>
-                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
+                    <FileBase 
+                        type="file" 
+                        multiple={false} 
+                        onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
                 </div>
                 <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
