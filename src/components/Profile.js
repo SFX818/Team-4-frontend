@@ -13,18 +13,18 @@ const Profile = () => {
                     <strong>Welcome, {currentUser.username}</strong>
                 </h3>
             </header>
-            <p>
+            {/* <p>
                 <strong>Name:</strong> {currentUser.firstName} {" "} {currentUser.lastName} 
-            </p>
+            </p> */}
             <p>
                 <strong>Id:</strong>{currentUser.id}
             </p>
             <p>
                 <strong>Email:</strong>{currentUser.email}
             </p>
-            <p>
+            {/* <p>
                 <strong>City:</strong>{currentUser.city}
-            </p>
+            </p> */}
             <img src={currentUser.profilePic} alt="current user's profile pic"/>
 
             {/* if current user has roles then map through those roles */}
