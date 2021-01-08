@@ -1,17 +1,16 @@
 import React from 'react'
+import logo from "../css/Petflix_Logo-01.png"
 
 const About = () => {
     return (
       <div class="about">
           <div class="aboutapp">
-              <h1>
-                  <strong>Petflix</strong>
-              </h1>
+              {/* <img src={logo} alt="Logo" className="logo"/> */}
               <p>
                 Text about PetFlix will go here.
               </p>
           </div>
-          <div class="developer1">
+          <div class="developer" style={{ width:"18rem"}}>
             {/* Lam's Image */}
             <p>
                I am a data-driven, human-centric design expert with extensive history in communications 
@@ -22,7 +21,7 @@ const About = () => {
                 Lam's Github
             </a>
           </div>
-          <div class="developer2">
+          <div class="developer" style={{ width:"18rem"}}>
             {/* Trez's Image */}
             <p>
                About Trez
@@ -31,7 +30,7 @@ const About = () => {
                 Trez's Github
             </a>
           </div>
-          <div class="developer3">
+          <div class="developer">
             {/* Gabe's Image */}
             <p>
                About Gabe

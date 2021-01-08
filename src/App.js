@@ -10,6 +10,7 @@ import Layout from './components/common/Layout'
 import Login from './components/Form/Login'
 import SignUp from './components/Form/SignUp'
 import Profile from './components/Profile'
+import About from './components/About'
 
 // CSS imports
 import "./css/App.css";
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/signup"} component={SignUp} />
         <Route exact path={"/profile"} component={Profile} />
+        <Route exact path={"/about"} component={About} />
       </Switch>
     </Layout>
   );
