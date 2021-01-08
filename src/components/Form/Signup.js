@@ -61,6 +61,7 @@ const validEmail = (value) => {
 const SignUp = (props) => {
   const form = useRef();
   const checkBtn = useRef();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -157,8 +158,6 @@ const SignUp = (props) => {
               validations={[required, vpassword]}
             />
           </FormGroup>
-
-
 
           <ButtonSpinner text="Sign Up"/>
 
