@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { getCurrentUser, logout } from '../../services/auth.service'
 import '../../css/Navbar.css'
+import { ReactComponent as Home } from '../../css/images/home.svg'
+
 
 const Layout = (props) => {
     const [showAdminBoard, setShowAdminBoard] = useState(false)
@@ -44,7 +46,7 @@ const Layout = (props) => {
                     {currentUser && (
                         <li className="nav-item">
                             <Link to={"/home"} className="nav-link">
-                                Home
+                                Homer
                             </Link>
                         </li>
                     )}
