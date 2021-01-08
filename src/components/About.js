@@ -53,7 +53,6 @@ const About = () => {
               As a driven software engineer, I always look for innovative ways to expand my
               knowledge of programming techniques. My calling lies in front end development as I
               have a unique vision for aesthetic and conveying my product vision through my work.
-              A keen eye for originality makes me an asset as a developer and team member.
               </p>
             </div>
             <a href="https://github.com/granddivino" class="gitlink">
