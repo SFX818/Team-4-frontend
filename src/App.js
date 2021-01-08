@@ -1,5 +1,7 @@
 import { Switch, Route } from 'react-router-dom' //import these two from react-router-dom
 
+
+
 //Components
 import Landing from './components/Landing'
 import Home from './components/Home'
@@ -10,6 +12,7 @@ import Layout from './components/common/Layout'
 import Login from './components/Form/Login'
 import SignUp from './components/Form/SignUp'
 import Profile from './components/Profile'
+import About from './components/About'
 
 // CSS imports
 import "./css/App.css";
@@ -24,6 +27,7 @@ const App = () => {
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/signup"} component={SignUp} />
         <Route exact path={"/profile"} component={Profile} />
+        <Route exact path={"/about"} component={About} />
       </Switch>
     </Layout>
   );
