@@ -40,7 +40,7 @@ const About = () => {
             <img src={Trez} class="DevImage"/>
             <div class="aboutdev">
               <p>
-               My name is Trez. I have not given Gabe my brand statement or what I actually want to go here yet.
+              I am a Software Engineer focused on problem solving using different variation of coding languages. With dedication, determination, and hard-work I plan to implement my skills into every single task that is placed towards me. 
               </p>
             </div>
             <a href="https://github.com/NatrezC" class="gitlink">
