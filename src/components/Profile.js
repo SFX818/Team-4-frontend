@@ -22,11 +22,6 @@ const Profile = () => {
             <p>
                 <strong>Email:</strong>{currentUser.email}
             </p>
-            <p>
-                <strong>City:</strong>{currentUser.city}
-            </p>
-            <img src={currentUser.profilePic} alt="current user's profile pic"/>
-
             {/* if current user has roles then map through those roles */}
             {currentUser.roles && 
                 currentUser.roles.map((roles, index) => <li key={index}>{roles}</li>)}

@@ -6,43 +6,55 @@ import FileBase from 'react-file-base64';
 // create and update actions imported
 import { createPost, updatePost } from '../../actions/posts';
 
+// css 
+import useStyles from './formStyles';
+
 const UploadPost = ({ postId, setPostId }) => {
     const [postData, setPostData] = useState({ 
         username: '', 
         description: '', 
         image: '' 
     });
-    const post = useSelector((state) => (postId ? state.posts.find((post) => post._id === postId) : null));
-
+    // ternary for updating = if there's a postId, loop over state.posts (calling find method to find post id )
+    const post = useSelector((state) => (postId ? state.posts.find((post) => post._id === postId) : null));    
+    
     const dispatch = useDispatch();
+
+    const style = useStyles();
 
     useEffect(() => {
         if (post) setPostData(post);
     }, [post]);
 
-    const clear = () => {
-        setPostId(0);
-        setPostData({ username: '', description: '', image: '' });
-    };
+    // const clear = () => {
+    //     setPostId(0);
+    //     setPostData({ username: '', description: '', image: '' });
+    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        if (postId === 0) {
+        if (!postId) {
           dispatch(createPost(postData));
-          clear();
+        //   clear();
         } else {
           dispatch(updatePost(postId, postData));
-          clear();
+        //   clear();
         }
     };
 
+    // if (!user?.result?.id) {
+    //     return (
+    //         <h1>Please sign in to share your pet pics!</h1>
+    //     )
+    // }
+
     return (
         <div>
-        <Paper>
-            <form onSubmit={handleSubmit}>
+        <Paper className={style.paper}>
+            <form onSubmit={handleSubmit} noValidate className={`${style.root} ${style.form}`}>
                 <Typography 
-                    variant="h6">{postId ? `Editing Post:"${post._id}"` : 'Make a Post'}
+                    variant="h6">{postId ? `Editing Post:"${post._id}"` : 'Share your pet pic!'}
                 </Typography>        
                 <TextField 
                     name="username" 
@@ -55,12 +67,13 @@ const UploadPost = ({ postId, setPostId }) => {
                     value={postData.message} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
                 <div>
                     <FileBase 
+                        className={style.fileInput}
                         type="file" 
                         multiple={false} 
                         onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
                 </div>
-                <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+                <Button className={style.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+                {/* <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button> */}
             </form>
         </Paper>
         </div>

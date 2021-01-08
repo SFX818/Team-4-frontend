@@ -3,12 +3,12 @@ import { Switch, Route } from 'react-router-dom' //import these two from react-r
 //Components
 import Landing from './components/Landing'
 import Home from './components/Home'
-import UploadPost from './components/Form/UploadPost'
+import UploadPost from './components/Forms/UploadPost'
 
 //HOC which wraps around other components
 import Layout from './components/common/Layout'
-import Login from './components/Form/Login'
-import SignUp from './components/Form/SignUp'
+import Login from './components/Forms/Login'
+import SignUp from './components/Forms/SignUp'
 import Profile from './components/Profile'
 
 // CSS imports
