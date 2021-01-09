@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { findAll } from '../actions/posts'
 import Posts from './Posts/Posts'
 
+import '../css/App.css'
+
 const Home = () => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();

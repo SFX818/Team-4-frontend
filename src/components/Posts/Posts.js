@@ -70,7 +70,7 @@ export default function Posts() {
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
+        image=""
         title="Paella dish"
       />
       <CardContent>
