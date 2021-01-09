@@ -3,6 +3,23 @@
 ## About Petflix
 This is the app for all animal lovers! Your pets want posts about them? They want an application that involves just the pets? They want to be posted at the waterparks, enjoying the nice sunsets, or even posted of them winning a pet race? Well The Callback Cats have an app for you pet lovers. Come sign up for an instagram version for your pets. No humans aloud!!
 
+### [Backend Repo]
+(https://github.com/SFX818/Team-4-backend)
+
+### [Deployed App]
+(https://petflix.herokuapp.com/)
+
+## Wireframes
+### Click [here](https://whimsical.com/ErfvTGujAf8JiZKRvthgW6) for wireframes
+
+## Installation Instructions
+To get the app up and running, please do the following: 
+> npm i
+>
+> npm start
+
+ 
+
 ## Technology Used
 We used:
 - React
@@ -33,5 +50,9 @@ The user would be able to :
 - add, update, or delete profile picture
 - create, read, update, and delete a milestone on pet's profile/dashboard
 - see existing journal entries
-  
-https://www.notion.so/GA-Project-Three-PETFLIX-Main-c060eebb6a004c369220fc25889ec175#babcffce8cfe4efd8daf2c4e9217f6b5
+
+## Major Hurdles & Unsolved Problems 
+At first, we had challenges with the slight learning curve of overall github management. 
+​
+Once we tackled that and got more skilled and familiar, the biggest hurdles were time, scope creep (using redux and related middlewares), and external events. If given more time, we would work to refactor our code without redux to make our app much less complicated.
+
