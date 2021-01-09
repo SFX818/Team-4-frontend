@@ -20,6 +20,7 @@ To get the app up and running, please do the following:
 
 ## Technology Used
 We used:
+- JavaScript
 - React
 - HTML5
 - CSS
