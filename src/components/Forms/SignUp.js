@@ -58,7 +58,6 @@ const validEmail = (value) => {
     }
 }
 
-
 const SignUp = (props) => {
   const form = useRef();
   const checkBtn = useRef();
@@ -68,6 +67,8 @@ const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
+
+
 
   // Stores the username in our username state
   const onChangeUsername = (e) => {

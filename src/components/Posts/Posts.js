@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import Post from './Post/Post';
 import useStyles from './styles';
 
-// const Posts = ({ setCurrentId }) => {
-//   const posts = useSelector((state) => state.posts);
 const Posts = ({ setPostId }) => {
+  // hook to get access to entire redux store for the state
+  // post refers to how it's declared in the reducers
   const posts = useSelector((state) => state.posts)
   const classes = useStyles();
 

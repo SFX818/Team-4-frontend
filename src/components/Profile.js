@@ -13,9 +13,9 @@ const Profile = () => {
                     <strong>Welcome, {currentUser.username}</strong>
                 </h3>
             </header>
-            <p>
+            {/* <p>
                 <strong>Name:</strong> {currentUser.firstName} {" "} {currentUser.lastName} 
-            </p>
+            </p> */}
             <p>
                 <strong>Id:</strong>{currentUser.id}
             </p>
