@@ -33,4 +33,5 @@ The user would be able to :
 - add, update, or delete profile picture
 - create, read, update, and delete a milestone on pet's profile/dashboard
 - see existing journal entries
-
+  
+https://www.notion.so/GA-Project-Three-PETFLIX-Main-c060eebb6a004c369220fc25889ec175#babcffce8cfe4efd8daf2c4e9217f6b5
