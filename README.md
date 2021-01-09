@@ -6,7 +6,7 @@ This the app for all animal lovers! Come sign up for an instagram version for yo
 
 The user must :
 
--Be able to sign up/sign out of the app
--Be able to log in and out of the app
+- Be able to sign up/sign out of the app
+- Be able to log in and out of the app
 -
 
