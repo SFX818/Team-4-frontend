@@ -3,11 +3,9 @@
 ## About Petflix
 This is the app for all animal lovers! Your pets want posts about them? They want an application that involves just the pets? They want to be posted at the waterparks, enjoying the nice sunsets, or even posted of them winning a pet race? Well The Callback Cats have an app for you pet lovers. Come sign up for an instagram version for your pets. No humans aloud!!
 
-### [Backend Repo]
-(https://github.com/SFX818/Team-4-backend)
+### [Backend Repo](https://github.com/SFX818/Team-4-backend)
 
-### [Deployed App]
-(https://petflix.herokuapp.com/)
+### [Deployed App](https://petflix.herokuapp.com/)
 
 ## Wireframes
 ### Click [here](https://whimsical.com/ErfvTGujAf8JiZKRvthgW6) for wireframes
@@ -22,6 +20,7 @@ To get the app up and running, please do the following:
 
 ## Technology Used
 We used:
+- JavaScript
 - React
 - HTML5
 - CSS
