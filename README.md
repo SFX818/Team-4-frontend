@@ -12,6 +12,12 @@ This is the app for all animal lovers! Your pets want posts about them? They wan
 ## Wireframes
 ### Click [here](https://whimsical.com/ErfvTGujAf8JiZKRvthgW6) for wireframes
 
+## Installation Instructions
+To get the app up and running, please do the following: 
+> npm i
+>
+> npm start
+
  
 
 ## Technology Used
@@ -45,5 +51,8 @@ The user would be able to :
 - create, read, update, and delete a milestone on pet's profile/dashboard
 - see existing journal entries
 
-
+## Major Hurdles & Unsolved Problems 
+At first, we had challenges with the slight learning curve of overall github management. 
+​
+Once we tackled that and got more skilled and familiar, the biggest hurdles were time, scope creep (using redux and related middlewares), and external events. If given more time, we would work to refactor our code without redux to make our app much less complicated.
 
