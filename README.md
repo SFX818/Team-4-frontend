@@ -1,6 +1,16 @@
 # Petflix
 
-This the app for all animal lovers! Come sign up for an instagram version for your pets. No humans aloud!!
+## About Petflix
+This is the app for all animal lovers! Your pets want posts about them? They want an application that involves just the pets? They want to be posted at the waterparks, enjoying the nice sunsets, or even posted of them winning a pet race? Well The Callback Cats have an app for you pet lovers. Come sign up for an instagram version for your pets. No humans aloud!!
+
+## Technology Used
+We used:
+- React
+- HTML5
+- CSS
+- VS Code
+- Github
+
 
 # Technical Requirements & Goals
 
