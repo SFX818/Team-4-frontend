@@ -1,6 +1,5 @@
-import React,{ useState, useEffect } from 'react'
+import React,{ useState } from 'react'
 
-import { findAll } from "../services/post.service"
 import Posts from './Posts/Posts'
 import UploadPost from './Forms/UploadPost'
 
@@ -8,10 +7,6 @@ import UploadPost from './Forms/UploadPost'
 
 const Home = () => {
   const [postId, setPostId] = useState(0);
-
-  useEffect(() => {
-    findAll()
-  }, [postId])
 
   return (
       <div>

@@ -7,25 +7,32 @@ import useStyles from './styles';
 import { findAll } from '../../services/post.service';
 
 
-const Posts = ({ setPostId }) => {
+const Posts = (props) => {
   const [posts, setPosts] = useState("")
-  const classes = useStyles();
+  const styles = useStyles();
 
   useEffect(() => {
     findAll().then((res) => {
-      setPosts(res.data.posts)
+      setPosts(res.data)
+    }).catch(err => {
+      console.log(err)
     })
   })
 
+  const timeline = posts.map((post, index) => {
+    return <Post key={post._id} post={post}/>
+  })
+
   return (
-      <Grid className={classes.container} container alignItems="stretch" spacing={3}>
-        {posts.map((post) => (
-          <Grid key={post._id} item xs={12} sm={6} md={6}>
-            <Post post={post} setPostId={setPostId} />
+
+      <Grid className={styles.container} container alignItems="stretch" spacing={3}>
+          <Grid item xs={12} sm={6} md={6}>
+            {timeline}
           </Grid>
-        ))}
       </Grid>
   );
 };
 
 export default Posts;
+
+
