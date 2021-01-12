@@ -1,51 +1,51 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
-// import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-// import DeleteIcon from '@material-ui/icons/Delete';
-// import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-// import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 import moment from 'moment';
 
-// import { updatePost, deletePost } from "../../../services/post.service"
+// import { likePost, deletePost, findOne } from "../../../services/post.service"
 import useStyles from './styles';
 
+// grab currentuser info
+import { getCurrentUser } from "../../../services/auth.service"
+
+
 const Post = ({ post, setPostId }) => {
-  const classes = useStyles();
+  const currentUser = getCurrentUser()
+  const styles = useStyles();
 
-//   const Likes = () => {
-//     if (post.likes.length > 0) {
-//       return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
-//         ? (
-//           <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
-//         ) : (
-//           <><ThumbUpAltOutlined fontSize="small" />&nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</>
-//         );
-//     }
+    // useEffect(() => {
+    //     findOne().then((response) => {
+    //             setPost(response.data)
+    //             // console.log(response)
+    //         }).catch(err => {
+    //             console.log(err)
+    //         })
+    // }, [])
 
-//     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
-//   };
-
-  return (
-    // <Card className={classes.card}>
-    //   <CardMedia className={classes.media} image={post.image || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
-    //   <div className={classes.overlay}>
-    //     <Typography variant="h6">{post.name}</Typography>
-    //     <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
-    //   </div>
-    //   <div className={classes.overlay2}>
-    //     <Button onClick={() => setPostId(post._id)} style={{ color: 'white' }} size="small">
-    //     </Button>
-    //   </div>
-
-    //   <Typography className={classes.username} gutterBottom variant="h5" component="h2">{post.username}</Typography>
-    //   <CardContent>
-    //     <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
-    //   </CardContent>
-    // </Card>
-    <>
-      <p>Post</p>
-    </>
-  );
+    return (
+      <Card className={styles.card}>
+        <CardMedia className={styles.media} image={post.image || 'https://i.imgur.com/VQJtZJh.jpg'} />
+        <div className={styles.overlay}>
+          <Typography variant="h6">{currentUser.username}</Typography>
+          <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+        </div>
+        <div className={styles.overlay2}>
+          <Button 
+            style={{ color: 'white' }} 
+            size="small" onClick={() => setPostId(post._id)}>
+          </Button>
+        </div>
+        <Typography className={styles.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
+        </CardContent>
+        {/* <CardActions className={styles.cardActions}>
+          <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+          <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+        </CardActions> */}
+      </Card>
+    );
 };
 
-export default Post;
+
+export default Post; 

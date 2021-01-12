@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 
@@ -13,14 +13,17 @@ import useStyles from './formStyles';
 
 const UploadPost = (props) => {
     const currentUser = getCurrentUser()
-    const style = useStyles();
+    const styles = useStyles();
     const [postData, setPostData] = useState({
         user: currentUser.id,
         description: "",
         image: ""
     });
-    
 
+    useEffect(() => {
+        setPostData(props.postData)
+    }, [props.postData])
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!props.postId) {
@@ -53,8 +56,8 @@ const UploadPost = (props) => {
 
     return (
         <div>
-            <Paper className={style.paper}>
-                <form onSubmit={handleSubmit} noValidate className={`${style.root} ${style.form}`}>
+            <Paper className={styles.paper}>
+                <form onSubmit={handleSubmit} noValidate className={`${styles.root} ${styles.form}`}>
                     <Typography 
                         variant="h6">{'Share your pet pic!'}
                     </Typography>       
@@ -79,7 +82,7 @@ const UploadPost = (props) => {
                     />
 
                     <Button 
-                        className={style.buttonSubmit} 
+                        className={styles.buttonSubmit} 
                         variant="contained" 
                         color="primary" 
                         size="large" 
