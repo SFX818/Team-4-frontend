@@ -1,20 +1,23 @@
-import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { Grid } from '@material-ui/core';
 
 import Post from './Post/Post';
 import useStyles from './styles';
 
+import { findAll } from '../../services/post.service';
+
+
 const Posts = ({ setPostId }) => {
-  // hook to get access to entire redux store for the state
-  // post refers to how it's declared in the reducers
-  const posts = useSelector((state) => state.posts)
+  const [posts, setPosts] = useState("")
   const classes = useStyles();
 
+  useEffect(() => {
+    findAll().then((res) => {
+      setPosts(res.data.posts)
+    })
+  })
+
   return (
-    !posts.length ? <CircularProgress /> : (
-    <>
-      <h1>Posts</h1>
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {posts.map((post) => (
           <Grid key={post._id} item xs={12} sm={6} md={6}>
@@ -22,11 +25,7 @@ const Posts = ({ setPostId }) => {
           </Grid>
         ))}
       </Grid>
-      {/* <Post /> */}
-    </>
-    )
-  )
+  );
 };
-
 
 export default Posts;
