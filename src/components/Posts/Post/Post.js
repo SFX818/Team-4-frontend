@@ -4,14 +4,12 @@ import { Card, CardContent, CardMedia, Button, Typography } from '@material-ui/c
 // import DeleteIcon from '@material-ui/icons/Delete';
 // import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 // import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
-// import { useDispatch } from 'react-redux';
 import moment from 'moment';
 
-// import { deletePost } from '../../../actions/posts';
+// import { updatePost, deletePost } from "../../../services/post.service"
 import useStyles from './styles';
 
 const Post = ({ post, setPostId }) => {
-//   const dispatch = useDispatch();
   const classes = useStyles();
 
 //   const Likes = () => {
@@ -28,32 +26,25 @@ const Post = ({ post, setPostId }) => {
 //   };
 
   return (
-    <Card className={classes.card}>
-      <CardMedia className={classes.media} image={post.image || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
-      <div className={classes.overlay}>
-        <Typography variant="h6">{post.name}</Typography>
-        <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
-      </div>
-      <div className={classes.overlay2}>
-        <Button onClick={() => setPostId(post._id)} style={{ color: 'white' }} size="small">
-        </Button>
-      </div>
+    // <Card className={classes.card}>
+    //   <CardMedia className={classes.media} image={post.image || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
+    //   <div className={classes.overlay}>
+    //     <Typography variant="h6">{post.name}</Typography>
+    //     <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+    //   </div>
+    //   <div className={classes.overlay2}>
+    //     <Button onClick={() => setPostId(post._id)} style={{ color: 'white' }} size="small">
+    //     </Button>
+    //   </div>
 
-      <Typography className={classes.username} gutterBottom variant="h5" component="h2">{post.username}</Typography>
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
-      </CardContent>
-      {/* <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
-          <Likes />
-        </Button>
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-        <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
-          <DeleteIcon fontSize="small" /> Delete
-        </Button>
-        )}
-      </CardActions> */}
-    </Card>
+    //   <Typography className={classes.username} gutterBottom variant="h5" component="h2">{post.username}</Typography>
+    //   <CardContent>
+    //     <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
+    //   </CardContent>
+    // </Card>
+    <>
+      <p>Post</p>
+    </>
   );
 };
 

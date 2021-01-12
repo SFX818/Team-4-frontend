@@ -1,51 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
+
 // grab currentuser info
 import { getCurrentUser } from "../../services/auth.service"
 
 // create and update actions imported
-import { createPost } from '../../services/post.service';
+import { createPost, updatePost } from '../../services/post.service';
 
 // css 
 import useStyles from './formStyles';
 
-const UploadPost = ( { postId, setpostId }) => {
+const UploadPost = (props) => {
     const currentUser = getCurrentUser()
     const style = useStyles();
     const [postData, setPostData] = useState({
-        user_id: currentUser.id, 
-        username: "",
+        user: currentUser.id,
         description: "",
         image: ""
     });
-
-    const post = useSelector((state) => (postId ? state.posts.find((post) => post._id === postId) : null));
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (post) setPostData(post);
-        console.log(post)
-      }, [post]);
-
-    // const clear = () => {
-    //     setPostData({ username: '', description: '', image: '' }); 
-    // };
-
-
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
-        if (postId === 0) {
-          dispatch(createPost(postData));
-          console.log(postData)
-        // } else {
-        //   dispatch(updatePost(postId, postData));
-        // }
-        };
-    }
+        if (!props.postId) {
+            console.log(postData)
+            createPost(postData).then(
+                (response) => {
+                    console.log(response)
+                    setTimeout(() => {
+                        props.history.push("/home")
+                    }, 2000)
+                },
+                (err) => {
+                    console.log(err)
+                }
+            )
+        } else {
+            updatePost(props.postId, postData).then(
+                (response) => {
+                    console.log(response)
+                    setTimeout(() => {
+                        props.history.push("/home")
+                    }, 2000)
+                },
+                (err) => {
+                    console.log(err)
+                }
+            )
+        }
+    };
 
     return (
         <div>
@@ -53,21 +57,35 @@ const UploadPost = ( { postId, setpostId }) => {
                 <form onSubmit={handleSubmit} noValidate className={`${style.root} ${style.form}`}>
                     <Typography 
                         variant="h6">{'Share your pet pic!'}
-                    </Typography>        
-                    <TextField 
-                        name="username" 
-                        label="Username" 
-                        value={postData.username} 
-                        onChange={(e) => setPostData({ ...postData, username: e.target.value })} />
+                    </Typography>       
+
+                    <div>
+                        <FileBase 
+                            type="file" 
+                            multiple={false} 
+                            onDone={({ base64 }) => setPostData({ 
+                                ...postData, image: base64 
+                            })} 
+                        />
+                    </div>
+
                     <TextField 
                         name="description" 
                         label="Description" 
-                        value={postData.description} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
-                    <div>
-                        <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, image: base64 })} />
-                    </div>
-                    <Button className={style.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                    {/* <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button> */}
+                        value={postData.description} 
+                        onChange={(e) => setPostData({ 
+                            ...postData, description: e.target.value 
+                        })} 
+                    />
+
+                    <Button 
+                        className={style.buttonSubmit} 
+                        variant="contained" 
+                        color="primary" 
+                        size="large" 
+                        type="submit" 
+                        fullWidth>Submit
+                    </Button>
                 </form>
             </Paper>
         </div>
