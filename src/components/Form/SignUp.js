@@ -158,8 +158,6 @@ const SignUp = (props) => {
             />
           </FormGroup>
 
-
-
           <ButtonSpinner text="Sign Up"/>
 
           {message && (
