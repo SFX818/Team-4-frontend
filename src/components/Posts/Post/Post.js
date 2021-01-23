@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import moment from 'moment';
 
-// import { likePost, deletePost, findOne } from "../../../services/post.service"
+import { likePost, deletePost } from "../../../services/post.service"
 import useStyles from './styles';
 
 // grab currentuser info
@@ -12,15 +12,6 @@ import { getCurrentUser } from "../../../services/auth.service"
 const Post = ({ post, setPostId }) => {
   const currentUser = getCurrentUser()
   const styles = useStyles();
-
-    // useEffect(() => {
-    //     findOne().then((response) => {
-    //             setPost(response.data)
-    //             // console.log(response)
-    //         }).catch(err => {
-    //             console.log(err)
-    //         })
-    // }, [])
 
     return (
       <Card className={styles.card}>
@@ -32,10 +23,10 @@ const Post = ({ post, setPostId }) => {
         <div className={styles.overlay2}>
           <Button 
             style={{ color: 'white' }} 
-            size="small" onClick={() => setPostId(post._id)}>
+            size="small" 
+            onClick={() => setPostId(post.post_id)}>
           </Button>
         </div>
-        <Typography className={styles.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
         </CardContent>

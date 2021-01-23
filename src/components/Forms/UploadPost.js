@@ -15,22 +15,23 @@ const UploadPost = (props) => {
     const currentUser = getCurrentUser()
     const styles = useStyles();
     const [postData, setPostData] = useState({
-        user: currentUser.id,
         description: "",
-        image: ""
+        image: "",
+        user: currentUser.id
     });
 
     useEffect(() => {
-        setPostData(props.postData)
-    }, [props.postData])
+        setPostData(props.post)
+    }, [props.post])
+
     
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!props.postId) {
             console.log(postData)
             createPost(postData).then(
-                (response) => {
-                    console.log(response)
+                (response) => { 
+                    // console.log(response)
                     setTimeout(() => {
                         props.history.push("/home")
                     }, 2000)
@@ -42,7 +43,7 @@ const UploadPost = (props) => {
         } else {
             updatePost(props.postId, postData).then(
                 (response) => {
-                    console.log(response)
+                    // console.log(response)
                     setTimeout(() => {
                         props.history.push("/home")
                     }, 2000)
@@ -56,6 +57,7 @@ const UploadPost = (props) => {
 
     return (
         <div>
+            {console.log(`this is the post data:`, postData)}
             <Paper className={styles.paper}>
                 <form onSubmit={handleSubmit} noValidate className={`${styles.root} ${styles.form}`}>
                     <Typography 
@@ -64,7 +66,8 @@ const UploadPost = (props) => {
 
                     <div>
                         <FileBase 
-                            type="file" 
+                            type="file"
+                            label="file" 
                             multiple={false} 
                             onDone={({ base64 }) => setPostData({ 
                                 ...postData, image: base64 
@@ -74,8 +77,8 @@ const UploadPost = (props) => {
 
                     <TextField 
                         name="description" 
-                        label="Description" 
-                        value={postData.description} 
+                        label="description" 
+                        value={postData ? postData.description : "Type in a description"} 
                         onChange={(e) => setPostData({ 
                             ...postData, description: e.target.value 
                         })} 
@@ -87,7 +90,8 @@ const UploadPost = (props) => {
                         color="primary" 
                         size="large" 
                         type="submit" 
-                        fullWidth>Submit
+                        fullWidth
+                        >Submit
                     </Button>
                 </form>
             </Paper>
