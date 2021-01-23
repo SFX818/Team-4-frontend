@@ -20,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     findAll().then((res) => {
-      setPosts(res.data.posts)
+      setPosts(res.data)
       console.log(res.data)
     })
   }, [])

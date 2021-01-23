@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Grid, CircularProgress } from '@material-ui/core';
 
 import Post from './Post/Post';
 import useStyles from './styles';
 
 
-const Posts = ({ setPostId }) => {
+const Posts = ({ setPostId, posts }) => {
   // help
-  const [posts, setPosts] = useState("")
   const styles = useStyles();
 
   return (
