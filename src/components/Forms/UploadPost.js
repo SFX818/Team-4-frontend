@@ -78,7 +78,7 @@ const UploadPost = (props) => {
                     <TextField 
                         name="description" 
                         label="description" 
-                        value={postData ? postData.description : "Type in a description"} 
+                        value={postData || ""} 
                         onChange={(e) => setPostData({ 
                             ...postData, description: e.target.value 
                         })} 
