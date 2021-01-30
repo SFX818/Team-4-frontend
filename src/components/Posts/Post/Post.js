@@ -1,43 +1,73 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom'
+import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 
 import { likePost, deletePost } from "../../../services/post.service"
 import useStyles from './styles';
 
 // grab currentuser info
-// import { getCurrentUser } from "../../../services/auth.service"
+import { getCurrentUser } from "../../../services/auth.service"
+
+const Post = ({ post, setPostId, updatePost }) => {
+    const currentUser = getCurrentUser()
+    const styles = useStyles();
+    const postId = post._id
+    const userId = currentUser.id
+    console.log("here is the post data on post.js:", post)
+    let history = useHistory();
+
+    //const [click, setClick] = useState(false)
+
+    const likePostHandler = () => {
+        likePost(postId)
+        updatePost()
 
 
-const Post = ({ post, setPostId }) => {
-  // const currentUser = getCurrentUser()
-  const styles = useStyles();
-  console.log("here is the post data on post.js:", post)
+        // setClick(!click)
+        // history.push("/home")
+        // window.location.reload(false)
+
+
+    }
+
+
+    const deletePostHandler = () => {
+        deletePost(postId, userId)
+        setTimeout(() => {
+            history.push("/home")
+            window.location.reload(false)
+        }, 500)
+    }
+
 
     return (
-      <Card className={styles.card}>
-        <CardMedia className={styles.media} image={post.image || 'https://i.imgur.com/VQJtZJh.jpg'} />
-        <div className={styles.overlay}>
-          <Typography variant="h6">{post.user.username}</Typography>
-          <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
-        </div>
-        <div className={styles.overlay2}>
-          <Button 
-            style={{ color: 'white' }} 
-            size="small" 
-            onClick={() => setPostId(post.post_id)}>
-          </Button>
-        </div>
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
-        </CardContent>
-        {/* <CardActions className={styles.cardActions}>
-          <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-          <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
-        </CardActions> */}
-      </Card>
+        <Card className={styles.card}>
+            <CardMedia className={styles.media} image={post.image || 'https://i.imgur.com/VQJtZJh.jpg'} />
+            <div className={styles.overlay}>
+                <Typography variant="h6">{post.user.username}</Typography>
+                <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+            </div>
+            <div className={styles.overlay2}>
+                <Button
+                    style={{ color: 'white' }}
+                    size="small"
+                    onClick={() => setPostId(postId)}><MoreHorizIcon fontSize="default" />
+                </Button>
+            </div>
+            <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">{post.description}</Typography>
+            </CardContent>
+            <CardActions className={styles.cardActions}>
+                <Button size="small" color="primary" onClick={likePostHandler}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+                <Button size="small" color="primary" onClick={deletePostHandler}><DeleteIcon fontSize="small" /> Delete</Button>
+            </CardActions>
+        </Card>
     );
 };
 
 
-export default Post; 
+export default Post;

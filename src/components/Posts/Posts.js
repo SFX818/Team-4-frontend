@@ -5,7 +5,7 @@ import Post from './Post/Post';
 import useStyles from './styles';
 
 
-const Posts = ({ setPostId, posts }) => {
+const Posts = ({ setPostId, posts, updatePost }) => {
   // help
   const styles = useStyles();
 
@@ -14,7 +14,7 @@ const Posts = ({ setPostId, posts }) => {
       <Grid className={styles.container} container alignItems="stretch" spacing={3}>
         {posts.map((post) => (
           <Grid key={post._id} item xs={12} sm={6} md={6}>
-            <Post post={post} setPostId={setPostId} />
+            <Post post={post} setPostId={setPostId} updatePost={updatePost} />
           </Grid>
         ))}
       </Grid>

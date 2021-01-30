@@ -1,4 +1,5 @@
 import axios from 'axios';
+import authHeader from '../utilities/authHeader.utilities'
 
 const urlPost = "http://localhost:8080/home/";
 
@@ -6,11 +7,17 @@ const urlPost = "http://localhost:8080/home/";
 export const findAll = () => axios.get(urlPost);
 export const findOne = (postId) => axios.get(urlPost + `${postId}`);
 export const createPost = (postData) => {
-    console.log(JSON.stringify(postData))
     return axios.post(urlPost + "upload", {
         postData
     });
 }
-export const likePost = (postId) => axios.put(`${urlPost}/${postId}/likePost`);
-export const updatePost = (postId, updatedPost) => axios.put(`${urlPost}/${postId}`, updatedPost);
-export const deletePost = (postId) => axios.delete(`${urlPost}/${postId}`);
+export const likePost = (postId) => axios.put(`${urlPost}${postId}/likePost`);
+export const updatePost = (postId, updatedPost) => axios.put(urlPost + `${postId}`, updatedPost);
+export const deletePost = (postId, userId) => {
+    return axios({
+        method: 'DELETE',
+        url: urlPost + `${postId}`,
+        userId: userId,
+        headers: authHeader()
+    })
+}
