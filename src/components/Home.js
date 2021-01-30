@@ -15,6 +15,11 @@ const Home = () => {
   const currentUser = getCurrentUser()
   const [posts, setPosts] = useState([])
   const [postId, setPostId] = useState(null);
+  const [click, setClick] = useState(false)
+
+  const updatePost = () => {
+    setClick(!click)
+  }
 
   useEffect(() => {
     findAll().then((res) => {
@@ -31,7 +36,7 @@ const Home = () => {
       <div>
           <h1 className="title">Welcome to Petflix</h1>
           <div className="gallery">
-            <Posts setPostId={setPostId} posts={posts} />
+        <Posts setPostId={setPostId} posts={posts} updatePost={updatePost}/>
             <UploadPost postId={postId} setPost={setPost} />
           </div>
       </div>
