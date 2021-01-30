@@ -1,6 +1,9 @@
 import { Button } from "reactstrap";
 import React from "react"
-import logo from "../css/Petflix_Logo-01.png"
+import logo from "../css/images/Petflix_Logo-01.png"
+
+// CSS imports
+import "../css/Landing.css"
 
 // landing page for more info about Petflix
 const Landing = () => {
@@ -12,5 +15,5 @@ const Landing = () => {
         </div>
     )
 };
-  
+
 export default Landing;
