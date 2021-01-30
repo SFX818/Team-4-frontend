@@ -10,15 +10,11 @@ const About = () => {
         <img src={logo} alt="Logo" className="aboutlogo"/>
           <div className="mainheader">
           
-              <u>About the Developers of Petflix</u>
+              <u>About Petflix & its Developers</u>
           </div>
           <div className="aboutapp">
               <p>
-                Text about PetFlix will go here.Text about PetFlix will go here.Text about PetFlix will go here.
-                Text about PetFlix will go here.Text about PetFlix will go here.Text about PetFlix will go here.
-                Text about PetFlix will go here.Text about PetFlix will go here.Text about PetFlix will go here.
-                Text about PetFlix will go here.Text about PetFlix will go here.Text about PetFlix will go here.
-                Text about PetFlix will go here.Text about PetFlix will go here.Text about PetFlix will go here.
+              This is the app for all animal lovers! Your pets want posts about them? They want an application that involves just the pets? They want to be posted at the waterparks, enjoying the nice sunsets, or even posted of them winning a pet race? Well The Callback Cats have an app for you pet lovers. Come sign up for an instagram version for your pets. No humans allowed!!
               </p>
           </div>
           <div className="developer" style={{ width:"18rem"}}>
@@ -37,12 +33,10 @@ const About = () => {
           </div>
           <div className="developer" style={{ width:"18rem"}}>
             <div className="name"><h2><u>Trez Crawford</u></h2></div>
-            <img src={Trez} className="DevImage" alt="Trez"/>
+            <img src={Trez} className="DevImage2" alt="Trez"/>
             <div className="aboutdev">
               <p>
-              I am a Software Engineer focused on problem solving using different variation of coding languages. 
-              With dedication, determination,and hard-work I plan to implement my skills into every single
-              task that is placed towards me. 
+                I am a Software Engineer focused on problem solving using many different variation of coding languages. With dedication, determination, and hard-work I plan to implement my skills into every single task that is placed in front of me. 
               </p>
             </div>
             <a href="https://github.com/NatrezC" className="gitlink">
