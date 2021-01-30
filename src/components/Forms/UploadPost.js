@@ -31,13 +31,14 @@ const UploadPost = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!props.postId) {
-            console.log(postData)
+            console.log("post data on line 34:", postData)
+            console.log("testing the type of image", typeof(postData.image))
             createPost(postData).then(
                 (response) => { 
                     // console.log(response)
                     setTimeout(() => {
                         history.push("/home")
-                        window.location.reload(false)
+                        // window.location.reload(false)
                     }, 2000)
                 },
                 (err) => {
@@ -45,6 +46,7 @@ const UploadPost = (props) => {
                 }
             )
         } else {
+            console.log(props.postId)
             updatePost(props.postId, postData).then(
                 (response) => {
                     // console.log(response)
@@ -62,7 +64,7 @@ const UploadPost = (props) => {
 
     return (
         <div>
-            {console.log(`this is the post data:`, postData)}
+            {console.log(`this is the post data before upload:`, postData)}
             <Paper className={styles.paper}>
                 <form onSubmit={handleSubmit} noValidate className={`${styles.root} ${styles.form}`}>
                     <Typography 
@@ -75,7 +77,7 @@ const UploadPost = (props) => {
                             label="file" 
                             multiple={false} 
                             onDone={({ base64 }) => setPostData({ 
-                                ...postData, image: base64 
+                                ...postData, user: currentUser.id, image: base64 
                             })} 
                         />
                     </div>
@@ -85,7 +87,7 @@ const UploadPost = (props) => {
                         label="description" 
                         value={postData ? postData.description : "Type in a description!"}
                         onChange={(e) => setPostData({ 
-                            ...postData, description: e.target.value 
+                            ...postData, user: currentUser.id, description: e.target.value 
                         })} 
                     />
 

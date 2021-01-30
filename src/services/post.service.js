@@ -6,7 +6,7 @@ const urlPost = "http://localhost:8080/home/";
 export const findAll = () => axios.get(urlPost);
 export const findOne = (postId) => axios.get(urlPost + `${postId}`);
 export const createPost = (postData) => {
-    console.log(postData)
+    console.log(JSON.stringify(postData))
     return axios.post(urlPost + "upload", {
         postData
     });
