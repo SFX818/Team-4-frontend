@@ -38,7 +38,7 @@ const UploadPost = (props) => {
                     // console.log(response)
                     setTimeout(() => {
                         history.push("/home")
-                        // window.location.reload(false)
+                        window.location.reload(false)
                     }, 2000)
                 },
                 (err) => {
