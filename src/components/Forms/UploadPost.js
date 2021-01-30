@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
+import { useHistory } from 'react-router-dom'
 
 // grab currentuser info
 import { getCurrentUser } from "../../services/auth.service"
@@ -20,6 +21,8 @@ const UploadPost = (props) => {
         user: currentUser.id
     });
 
+    let history = useHistory();
+
     useEffect(() => {
         setPostData(props.post)
     }, [props.post])
@@ -33,7 +36,8 @@ const UploadPost = (props) => {
                 (response) => { 
                     // console.log(response)
                     setTimeout(() => {
-                        props.history.push("/home")
+                        history.push("/home")
+                        window.location.reload(false)
                     }, 2000)
                 },
                 (err) => {
@@ -45,7 +49,8 @@ const UploadPost = (props) => {
                 (response) => {
                     // console.log(response)
                     setTimeout(() => {
-                        props.history.push("/home")
+                        history.push("/home")
+                        window.location.reload(false)
                     }, 2000)
                 },
                 (err) => {
@@ -78,7 +83,7 @@ const UploadPost = (props) => {
                     <TextField 
                         name="description" 
                         label="description" 
-                        value={postData || ""} 
+                        value={postData ? postData.description : "Type in a description!"}
                         onChange={(e) => setPostData({ 
                             ...postData, description: e.target.value 
                         })} 

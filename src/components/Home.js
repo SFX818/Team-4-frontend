@@ -11,7 +11,7 @@ import { findAll } from '../services/post.service';
 
 const Home = () => {
   const currentUser = getCurrentUser()
-  const [posts, setPosts] = useState({})
+  const [posts, setPosts] = useState([])
   const [postId, setPostId] = useState({
     description: "",
     image: "",
