@@ -9,6 +9,8 @@ import { findAll } from '../services/post.service';
 
 // renders posts and comments
 
+import '../css/App.css'
+
 const Home = () => {
   const currentUser = getCurrentUser()
   const [posts, setPosts] = useState([])
