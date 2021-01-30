@@ -12,11 +12,7 @@ import { findAll } from '../services/post.service';
 const Home = () => {
   const currentUser = getCurrentUser()
   const [posts, setPosts] = useState([])
-  const [postId, setPostId] = useState({
-    description: "",
-    image: "",
-    user: currentUser.id
-  });
+  const [postId, setPostId] = useState(null);
 
   useEffect(() => {
     findAll().then((res) => {
@@ -25,12 +21,16 @@ const Home = () => {
     })
   }, [])
 
+  const setPost = (id) => {
+    setPostId()
+  }
+  
   return (
       <div>
           <h1 className="title">Welcome to Petflix</h1>
           <div className="gallery">
             <Posts setPostId={setPostId} posts={posts} />
-            <UploadPost postId={postId} setPostId={setPostId} />
+            <UploadPost postId={postId} setPost={setPost} />
           </div>
       </div>
   );
