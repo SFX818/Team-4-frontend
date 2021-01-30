@@ -40,7 +40,7 @@ const Post = ({ post, setPostId, updatePost }) => {
         setTimeout(() => {
             history.push("/home")
             window.location.reload(false)
-        }, 2000)
+        }, 500)
     }
 
 
