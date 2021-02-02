@@ -1,7 +1,7 @@
 # PetFlix - Frontend
 
-## Deployed Link
-http://petflix.surge.sh/
+
+
 
 ## About Petflix
 This is the app for all animal lovers! Your pets want posts about them? They want an application that involves just the pets? They want to be posted at the waterparks, enjoying the nice sunsets, or even posted of them winning a pet race? Well The Callback Cats have an app for you pet lovers. Come sign up for an instagram version for your pets. No humans allowed!!
@@ -15,7 +15,8 @@ The main idea is to implement both a social and personal element to the app. Bey
 
 ### [Backend Repo](https://github.com/SFX818/Team-4-backend)
 
-### [Deployed App](https://petflix.herokuapp.com/)
+### [Deployed Frontendk](http://petflix.surge.sh/)
+### [Deployed Backend](https://petflix.herokuapp.com/)
 
 ## Wireframes
 ### Click [here](https://whimsical.com/ErfvTGujAf8JiZKRvthgW6) for wireframes
