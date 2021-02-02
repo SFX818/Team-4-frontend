@@ -15,7 +15,7 @@ The main idea is to implement both a social and personal element to the app. Bey
 
 ### [Backend Repo](https://github.com/SFX818/Team-4-backend)
 
-### [Deployed Frontendk](http://petflix.surge.sh/)
+### [Deployed Frontend](http://petflix.surge.sh/)
 ### [Deployed Backend](https://petflix.herokuapp.com/)
 
 ## Wireframes
