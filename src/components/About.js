@@ -19,7 +19,7 @@ const About = () => {
           </div>
           <div className="developer" style={{ width:"18rem"}}>
             <div className="name"><h2><u>Lam-Anh Le</u></h2></div>
-            <img src={Lam} className="DevImage"/>
+            <img src={Lam} className="DevImage" alt="Lam"/>
             <div className="aboutdev">
               <p>
                 I am a data-driven, human-centric design expert with extensive history in communications 
@@ -33,7 +33,7 @@ const About = () => {
           </div>
           <div className="developer" style={{ width:"18rem"}}>
             <div className="name"><h2><u>Trez Crawford</u></h2></div>
-            <img src={Trez} className="DevImage2"/>
+            <img src={Trez} className="DevImage2" alt="Trez"/>
             <div className="aboutdev">
               <p>
                 I am a Software Engineer focused on problem solving using many different variation of coding languages. With dedication, determination, and hard-work I plan to implement my skills into every single task that is placed in front of me. 
@@ -45,7 +45,7 @@ const About = () => {
           </div>
           <div className="developer" style={{ width:"18rem"}}>
             <div className="name"><h2><u>Gabriel Go</u></h2></div>
-            <img src={Gabe} className="DevImage"/>
+            <img src={Gabe} className="DevImage" alt="Gabe"/>
             <div className="aboutdev">
               <p>
               As a driven software engineer, I always look for innovative ways to expand my

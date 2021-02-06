@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from '../utilities/authHeader.utilities'
 
-const urlPost = "http://localhost:8080/home/";
+const urlPost = "https://fathomless-atoll-35515.herokuapp.com/home/";
 
 // follow up with instructors if we can pass an array like this 
 export const findAll = () => axios.get(urlPost);

@@ -2,7 +2,7 @@ import axios from 'axios'
 import authHeader from '../utilities/authHeader.utilities'
 
 //Helper function to get access token for header
-export const API_URL = 'http://localhost:8080/api/test/'
+const API_URL = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_USER : process.env.REACT_APP_PRO_URL_USER;
 
 /*
 GET |  /api/test/all  | retrieve public content
