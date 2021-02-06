@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0574c7d6.chunk.css",
+    "main.js": "/static/js/main.1af36bb4.chunk.js",
+    "main.js.map": "/static/js/main.1af36bb4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6290e5e0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6290e5e0.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.101c6d3a.chunk.js": "/static/js/2.101c6d3a.chunk.js",
+    "static/js/2.101c6d3a.chunk.js.map": "/static/js/2.101c6d3a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.0574c7d6.chunk.css.map": "/static/css/main.0574c7d6.chunk.css.map",
+    "static/js/2.101c6d3a.chunk.js.LICENSE.txt": "/static/js/2.101c6d3a.chunk.js.LICENSE.txt",
+    "static/media/Gabe.13ab12bc.jpg": "/static/media/Gabe.13ab12bc.jpg",
+    "static/media/Lam.7f2e5d7b.jpg": "/static/media/Lam.7f2e5d7b.jpg",
+    "static/media/Petflix_Logo-01.364a5f2f.png": "/static/media/Petflix_Logo-01.364a5f2f.png",
+    "static/media/Trez.1a1c3e72.jpg": "/static/media/Trez.1a1c3e72.jpg",
+    "static/media/home.9567d2f9.svg": "/static/media/home.9567d2f9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6290e5e0.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.101c6d3a.chunk.js",
+    "static/css/main.0574c7d6.chunk.css",
+    "static/js/main.1af36bb4.chunk.js"
+  ]
+}
